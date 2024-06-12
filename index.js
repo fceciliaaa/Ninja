@@ -11,14 +11,12 @@ class ninja {
     }
     showStats(){
         console.log(`Nombre: ${this.nombre}`);
+        console.log(`Salud: ${this.salud}`);
         console.log(`Velocidad: ${this.velocidad}`);
         console.log(`Fuerza: ${this.fuerza}`);
-        console.log(`Salud: ${this.salud}`);
     }
     drinkSake(){
         this.salud +=10;
-        console.log(`Salud del ninja después de beber el sake: ${this.salud}`);
-
     }
 }
 
@@ -26,3 +24,22 @@ const ninja1 = new ninja ("Zeus");
 ninja1.sayName();
 ninja1.showStats();
 ninja1.drinkSake();
+
+
+class sensei extends ninja{
+    constructor (nombre){
+        super(nombre);
+        this.salud = 200;
+        this.velocidad = 10;
+        this.fuerza = 10;
+        this.sabiduria = 10;
+    }
+    speakWisdom(){
+        super.drinkSake();
+        console.log("Puedes fallar en lo que no quieres. Así que también podrías tener la oportunidad de hacer lo que amas")
+    }
+}
+
+const superSensei = new sensei ("Master Zeus");
+superSensei.speakWisdom();
+superSensei.showStats();
